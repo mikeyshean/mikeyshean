@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { Container } from '@/components/Container'
 import { formatDate } from '@/lib/formatDate'
 import { Prose } from '@/components/Prose'
+import {MDXProvider} from '@mdx-js/react'
 
 function ArrowLeftIcon(props) {
   return (
@@ -18,6 +19,14 @@ function ArrowLeftIcon(props) {
   )
 }
 
+function Heading2({children}) {
+  return <h2 className='mt-12 mb-5'>{children}</h2>
+}
+
+function ListItem({children}) {
+  return <li className='my-2'>{children}</li>
+}
+
 export function ArticleLayout({
   children,
   meta,
@@ -28,6 +37,10 @@ export function ArticleLayout({
 
   if (isRssFeed) {
     return children
+  }
+  const components = {
+    h2: Heading2,
+    li: ListItem
   }
 
   return (
@@ -62,7 +75,11 @@ export function ArticleLayout({
                   <span className="ml-3">{formatDate(meta.date)}</span>
                 </time>
               </header>
-              <Prose className="mt-8">{children}</Prose>
+              <Prose className="mt-8">
+                <MDXProvider components={components}>
+                  {children}
+                </MDXProvider>
+              </Prose>
             </article>
           </div>
         </div>

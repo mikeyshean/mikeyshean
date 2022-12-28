@@ -1,0 +1,41 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Link from 'next/link'
+import Image from 'next/image'
+import gamePic from './game.png'
+import Prose from '@/components/Prose'
+
+export const meta = {
+  author: 'Mikey Shean',
+  date: '2022-12-28',
+  title: 'Escape from Krypton',
+  description:
+    'Whew! What a wild past couple of weeks it has been.  I\'ve been working on a bunch of different things to launch this site you\'re on right now and the associated projects that have brought me all over the stack.  There were victories and frustrations along the way, but also many new concepts learned and skills added to the toolbox.'
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+<Image src={gamePic} alt=""/>
+
+This JavaScript based browser game is a reboot of one of my projects that I demoed at the end of my studies at App Academy.  According 
+to the original <a href="https://github.com/mikeyshean/kryptonite" target="_blank">Github Repo</a> it's been over 7 years(?!) 
+since this bad boy has been live for all the world to enjoy! You are very welcome.
+## Background
+
+Inspired by the mobile game FlappyBird, I had originally written the game in pure JavaScript/jQuery and used HTML's 
+`<canvas>` <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank">API</a> to render it all in the browser. I took 
+it a step further than the original assignment of just creating a JavaScript based brower game by building a Ruby/Rails backend API to 
+track high scores and persist that data for "All Time High Scores" to be available to all visitors of the site. It was a big hit 
+with the rest of the students and my backend leaderboard API was quickly "hacked" and overrun with fake scores by my classmates who were 
+all very eager to wield their newly obtained web developer skills 😅.  
+
+## Goals 
+
+To bring it into the modern era I chose maximum pain by deciding to migrate it to TypeScript as a NextJS project using the <a href="https://create.t3.gg/" target="_blank">t3 stack.</a> 
+A lot of the decisions I'm making regarding which language, framework, and/or tools I'm using lately are being made not so 
+much because it's the easiest or fastest way to go, but because I want to intentionally force myself to learn new things along the way. It's definitely been slower and more painful 
+but overall a very rewarding experience.
+
+## New Features for the Reboot:
+- [ ] Leaderboard that is *less* hackable
+- [ ] Scrolling background art
+- [ ] Mute sound toggle
