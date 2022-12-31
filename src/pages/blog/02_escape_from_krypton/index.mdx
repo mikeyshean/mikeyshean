@@ -1,49 +1,111 @@
 import { ArticleLayout } from '@/components/ArticleLayout'
 import Image from 'next/image'
-import gamePic from './game.png'
+import gamePlay from './gameplay.gif'
+import sideCollision from './side_collision.png'
+import trigCollision from './trig_collision.png'
+import gapCollision from './gap_collision.png'
 import { Button } from '@/components/Button'
+import { TableOfContents } from '@/components/TableOfContents'
 
 export const meta = {
   author: 'Mikey Shean',
   date: '2022-12-28',
   title: 'Escape from Krypton',
   description:
-    'Whew! What a wild past couple of weeks it has been.  I\'ve been working on a bunch of different things to launch this site you\'re on right now and the associated projects that have brought me all over the stack.  There were victories and frustrations along the way, but also many new concepts learned and skills added to the toolbox.'
+    'This JavaScript based browser game is a reboot of one of my projects that I demoed at the end of my studies at App Academy.  As you can imagine, it holds some sentimental value for me, but it\'s been over *seven years* since this bad boy has been live for all the world to enjoy.'
 }
+
 
 export default (props) => <ArticleLayout meta={meta} {...props} />
 
-<Image src={gamePic} alt=""/>
+<div className="not-prose">
+  <Image src={gamePlay} alt="" className="rounded-none"/>
+</div>
 
-This **JavaScript** based browser game is a reboot of one of my projects that I demoed at the end of my studies at App Academy.  As you can imagine, it holds some 
-sentimental significance for me.  Sadly, according to the original <a href="https://github.com/mikeyshean/kryptonite" target="_blank">Github Repo</a> it's been over ***7 years***(?!) 
-since this bad boy has been live for all the world to enjoy.
+This JavaScript based browser game is a reboot of one of my final projects that I demoed at the end of my studies at App Academy.  As you 
+can imagine, it holds some sentimental value for me, but it's been over *seven years* since this bad boy has been 
+live for all the world to enjoy.
 
-That's why I thought it was about time I dusted it off and gave it a new place to call home.  Play now by clicking the button, or continue reading to learn more about the project 😄
+That's why I thought it was about time that I dust it off, upgrade it, and give it a new place to call home.  You can play it now by 
+clicking the button below, or continue reading to learn more about the project 😄
 
 <div className="flex justify-center">
   <Button className="not-prose flex" href="https://escapekrypton.app" value="Hi">Play Escape from Krypton!</Button>
 </div>
 
+
+export const headingText = [
+  "Background",
+  "Updates for 2022",
+  "Overview of Collision Detection"
+]
+
+<TableOfContents headingText={headingText}/>
+
 ## Background
 
-Inspired by the mobile game **FlappyBird**, I had originally written the game in pure **JavaScript/jQuery** and used HTML's 
-`<canvas>` API to render it all in the browser. At the time, I took it a step further than the original assignment which was to just create a JavaScript based browser game by building a 
-<a href="https://github.com/mikeyshean/leaderboard" target="_blank">Ruby/Rails LeaderboardAPI</a>.  I used this to 
-track high scores and persist data for "All Time High Scores" to be available to all the visitors of the site. It was a big hit 
-with the rest of the students and my backend leaderboard API was quickly "hacked" and overrun with fake scores by my classmates who were 
-all too eager to wield their newly obtained web developer skills 😅.  
+Inspired by the mobile game **FlappyBird**, I created the <a href="https://github.com/mikeyshean/kryptonite">first version</a> of 
+this game in 2015. Originally, I wrote it all in  JavaScript/jQuery and used HTML's `<canvas>` to render it all in the 
+browser. I took it a step further than the original assignment of creating a JavaScript based browser game by building 
+a <a href="https://github.com/mikeyshean/leaderboard">Ruby/Rails LeaderboardAPI</a>.  I used this to 
+track high scores and persist data for "All Time High Scores" to be available to the visitors of the site. It was a big hit 
+with the rest of the students (and even my instructors!), but my backend leaderboard API was quickly "hacked" and overrun 
+with fake scores by my classmates who were all too eager to wield their newly obtained web developer skills 😅.  
 
-## Goals 
+For context as you read on, a lot of the decisions I'm making regarding which language, framework, and/or tools to use have not been because 
+it's the easiest or fastest way to do it, but because I want to intentionally force myself to learn new things along 
+the way. It's been slower and more painful this way, and sometimes a complete overengineering of the project, but it's been a 
+great way to test myself and have fun while learning new skills.  I mean, who doesn't want to play with all the new shiny things anyways?
 
-To bring it into the modern era I chose maximum pain by deciding to migrate it to **TypeScript** as a **NextJS** project using the <a href="https://create.t3.gg/" target="_blank">t3 stack</a> which would 
-also leverage **tRPC/Prisma** to replace the Ruby/Rails LeaderboardAPI and have a completely fullstack NextJS application. 
+## Updates for 2022
 
-A lot of the decisions I've made lately regarding which language, framework, and/or tools to use have not been because it's the easiest or fastest way to do it, but because I want to intentionally force myself to learn new things 
-along the way. It's definitely been a little slower and more painful this way, but I think it's been an enlightening and educational experience to say the least.  But also, 
-who doesn't want to play with all the new shiny things?
+To bring it into the modern era, I chose *maximum pain* by deciding to migrate it to **TypeScript** as a **Next.js** project using 
+the <a href="https://create.t3.gg/" target="_blank">t3 stack</a>.  With it I'll be leveraging **tRPC/Prisma** to replace the Ruby/Rails LeaderboardAPI 
+for a completely fullstack Next.js application. 
+
+As a predominantly backend engineer, this was an excellent exercise in both TypeScript and React.  I've used a bit of both 
+at TravelPerk, but not with a very strong understanding of all the differences between `useEffect`, `useState`, and `useContext`. Luckily,
+I had to become acutely aware of the nuances of each as I React-ified my vanilla JavaScript game.  A single unintended re-render or 
+firing of a `useEffect` side-effect would cause the game to glitch out.
+
+## Overview of Collision Detection
+
+In order to detect when Superman collides with a Kryptonite crystal I've
+defined hit box boundaries around each kryptonite and Superman that will be used to calculate 
+when a collision occurs.  For this game we need three types of collision detection detailed below:
+
+### `sideCollision()`
+Here we detect when the right vertical edge of Superman's triangular hit box collides with the left edge of the Kryptonite. An extra 
+qualifying condition to check is that the top of Superman is above the lowest edge of the upper Kryptonite or the bottom of Superman is below the top 
+edge of the lower Kryptonite.
+
+<Image src={sideCollision} alt=""/>
+
+### `gapCollision()`
+
+Here we detect when the top point or bottom edge of Superman collides with the top/bottom edges of the Kryptonite within the gap.
+
+<Image src={gapCollision} alt=""/>
+
+### `trigCollision()`
+Finally, we detect when the rear hypotenuse edge of Superman's hit box collides with the bottom edge of the top Kryptonite.  This might 
+seem like an unnecessary detail, but originally I had Superman's hit box as an actual box vs. the triangle you see below.  Due to the 
+shape of Superman with his cape, a true quadrilateral hit box would trigger a collision where visually it did not appear that one occurred.  A 
+trianglur hit box proved to allow more accurate collision detection.
+
+<Image src={trigCollision} alt=""/>
+
+## Going Forward
+
+As I resurrected this game I found myself finding all sorts of improvements I wanted to work on.  Overall, most of the actual 
+game mechanics will remain unchanged.  I have to give myself credit for creating an actual playable game, but there are plenty of nice to haves 
+and of course refactorings that would go a long way to keep iterating on it.  
+
+One "bug" I did discover is the scoring mechanic which is currently calculated by the number of kryptonite that are created.  This isn't entirely accurate 
+as the timing of kryptonite creation doesn't actually align with the true score.  In the most likely scenario where the player flies into the kryptonite 
+it is usually accurate, however if the player reaches a `gameOver` state by flying below the play area, the scoring will not be accurate.
 
 ## New Features for the Reboot:
-- [ ] Leaderboard that is *less* hackable
-- [ ] Scrolling background art
+- [ ] Leaderboard that is *less* hackable with server-side game validation
 - [ ] Mute sound toggle
+- [ ] Scrolling background art
