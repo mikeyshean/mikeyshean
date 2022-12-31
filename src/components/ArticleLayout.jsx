@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-
 import { Container } from '@/components/Container'
 import { formatDate } from '@/lib/formatDate'
 import { Prose } from '@/components/Prose'
@@ -19,9 +18,15 @@ function ArrowLeftIcon(props) {
   )
 }
 
-function Heading2({children}) {
-  return <h2 className='mt-12 mb-5'>{children}</h2>
-}
+// function Heading2({children}) {
+//   return <h2 className='mt-12 mb-5'>{children}</h2>
+// }
+export const Heading2 = ({ children }) => {
+  const idText = children.replace(/ /g, "_").toLowerCase();
+
+  return <h2 id={idText} className='mt-12 mb-5'>{children}</h2>;
+};
+
 
 function ListItem({children}) {
   return <li className='my-2'>{children}</li>
