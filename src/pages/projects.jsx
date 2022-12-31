@@ -11,18 +11,18 @@ import logoPlanetaria from '@/images/logos/planetaria.svg'
 
 const projects = [
   {
-    name: 'API Mapper for Integrations',
+    name: 'Escape from Krypton',
     description:
-      'Build integrations through a UI by mapping JSON payloads to a common model.',
-    link: { href: 'http://apimapper.dev', label: 'apimapper.dev' },
-    logo: logoPlanetaria,
+      'A FlappyBird inspired browser with a high score leaderboard. Stack: NextJS/TypeScript, React, tRPC, Prisma, HTML Canvas',
+    link: { href: 'https://escapekrypton.app', label: 'escapekrypton.app' },
+    logo: logoAnimaginary,
   },
   {
-    name: 'Animaginary',
+    name: 'API Mapper Tool',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoAnimaginary,
+      'Build integrations through this UI by mapping JSON payloads to a common data model.',
+    link: { href: 'https://apimapper.dev', label: 'apimapper.dev' },
+    logo: logoPlanetaria,
   },
   {
     name: 'HelioStream',
