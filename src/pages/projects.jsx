@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import logoAnimaginary from '@/images/logos/animaginary.svg'
+import logoKrypton from '@/images/logos/chubby-superman.png'
 import logoCosmos from '@/images/logos/cosmos.svg'
 import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
@@ -15,7 +15,7 @@ const projects = [
     description:
       'A FlappyBird inspired browser with a high score leaderboard. Stack: NextJS/TypeScript, React, tRPC, Prisma, HTML Canvas',
     link: { href: 'https://escapekrypton.app', label: 'escapekrypton.app' },
-    logo: logoAnimaginary,
+    logo: logoKrypton,
   },
   {
     name: 'API Mapper Tool',

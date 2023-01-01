@@ -4,7 +4,11 @@ import gamePlay from './gameplay.gif'
 import sideCollision from './side_collision.png'
 import trigCollision from './trig_collision.png'
 import gapCollision from './gap_collision.png'
+import kryptoniteSource from './kryptonite_source.png'
+import superCircle from './super_circle.png'
+import trigDiagram from './trig_diagram.png'
 import { Button } from '@/components/Button'
+import { SuperImage } from '@/components/SuperImage'
 import { TableOfContents } from '@/components/TableOfContents'
 
 export const meta = {
@@ -18,9 +22,14 @@ export const meta = {
 
 export default (props) => <ArticleLayout meta={meta} {...props} />
 
-<div className="not-prose">
-  <Image src={gamePlay} alt="" className="rounded-none"/>
-</div>
+export const main_image = {
+  src: gamePlay,
+  alt: "gif of kryptonite game gameplay",
+  center: true,
+  squared: true
+}
+
+<SuperImage {...main_image} />
 
 This JavaScript based browser game is a reboot of one of my final projects that I demoed at the end of my studies at App Academy.  As you 
 can imagine, it holds some sentimental value for me, but it's been over *seven years* since this bad boy has been 
@@ -36,8 +45,9 @@ clicking the button below, or continue reading to learn more about the project �
 
 export const headingText = [
   "Background",
+  "Game Design",
+  "Collision Detection",
   "Updates for 2022",
-  "Overview of Collision Detection"
 ]
 
 <TableOfContents headingText={headingText}/>
@@ -45,17 +55,71 @@ export const headingText = [
 ## Background
 
 Inspired by the mobile game **FlappyBird**, I created the <a href="https://github.com/mikeyshean/kryptonite">first version</a> of 
-this game in 2015. Originally, I wrote it all in  JavaScript/jQuery and used HTML's `<canvas>` to render it all in the 
-browser. I took it a step further than the original assignment of creating a JavaScript based browser game by building 
-a <a href="https://github.com/mikeyshean/leaderboard">Ruby/Rails LeaderboardAPI</a>.  I used this to 
-track high scores and persist data for "All Time High Scores" to be available to the visitors of the site. It was a big hit 
+this game in 2015. Originally, I wrote it all in  JavaScript / jQuery and used HTML5's Canvas to render it all in the 
+browser. 
+
+I took it a step further than the original assignment of creating a JavaScript based browser game by building 
+a <a href="https://github.com/mikeyshean/leaderboard">Ruby / Rails LeaderboardAPI</a>.  I used this to 
+track high scores and persist data for the "Leaderboard" to be available to all visitors of the site. It was a big hit 
 with the rest of the students (and even my instructors!), but my backend leaderboard API was quickly "hacked" and overrun 
 with fake scores by my classmates who were all too eager to wield their newly obtained web developer skills 😅.  
 
-For context as you read on, a lot of the decisions I'm making regarding which language, framework, and/or tools to use have not been because 
-it's the easiest or fastest way to do it, but because I want to intentionally force myself to learn new things along 
-the way. It's been slower and more painful this way, and sometimes a complete overengineering of the project, but it's been a 
-great way to test myself and have fun while learning new skills.  I mean, who doesn't want to play with all the new shiny things anyways?
+## Game Design
+
+I used HTML5 / Canvas for the rendering which was pretty fun to work with. It allows you to create your own sprites as an image source 
+to paint onto the canvas. I actually drew my own Kryptonite in Photoshop for the obstacles:
+
+<div className="flex justify-center">
+  <Image src={kryptoniteSource} className="" alt="kryptonite source images" />
+</div>
+
+The game randomly selects the height and calculates how much it needs for the top and bottom piece. It takes into account the `Kryptonite.GAP`
+constant and any `Kryptonite.PADDING` I’ve allowed to make the hit boxes a bit more friendly, then it takes the appropriate slice 
+from the source image and paints it onto the canvas. COOL, RIGHT?!
+
+
+## Collision Detection
+
+During development I had the "flying object" (which I didn't know would be Superman at the time) represented as a circle 
+which clearly did not work too well once I did switch to using the Superman sprite:
+
+<SuperImage src={superCircle} caption="Hey, that's not a collision!" alt="superman with circle hit box" />
+
+The white paths show the true boundaries used for determining collisions. Even with padding,
+you can see that the circle won’t be very accurate anymore. So, I changed Superman's hit box shape to a triangle instead. Okay, now 
+that we've defined the hit box boundaries, we need to define how we will detect our collisions:
+
+### `sideCollision()`
+Here we detect when the right vertical edge of Superman's triangular hit box collides with the left edge of the Kryptonite. An extra 
+qualifying condition to check is whether the top of Superman is above the lowest edge of the upper Kryptonite or the bottom of Superman is below the top 
+edge of the lower Kryptonite.
+
+<Image src={sideCollision} alt=""/>
+
+### `gapCollision()`
+
+Here we detect when the top point or bottom edge of Superman collides with the top/bottom edges of the Kryptonite within the gap.
+
+<Image src={gapCollision} alt=""/>
+
+### `trigCollision()`
+Finally, we detect when the rear hypotenuse edge of Superman's hit box collides with the bottom edge of the top Kryptonite. Due to the 
+shape of Superman with his cape, a circle or quadrilateral hit box would trigger a collision where visually it did not appear that one occurred.  A 
+trianglur hit box proved to allow more accurate collision detection.
+
+<Image src={trigCollision} alt=""/>
+
+This required a slight change in how the collision would be detected as Superman rises past this particular edge. Using an 
+Isosceles Right Triangle made this slightly easier:
+
+<Image src={trigDiagram} alt=""/>
+
+Simply put, while ***k*** is between points ***a*** and ***b***, a collision is triggered if the length of 
+***kx*** is less than the length of ***ax***. A nice and easy solution after I initially thought I would need to 
+whip out some trig functions for this one.
+
+
+
 
 ## Updates for 2022
 
@@ -68,32 +132,11 @@ at TravelPerk, but not with a very strong understanding of all the differences b
 I had to become acutely aware of the nuances of each as I React-ified my vanilla JavaScript game.  A single unintended re-render or 
 firing of a `useEffect` side-effect would cause the game to glitch out.
 
-## Overview of Collision Detection
+For context, a lot of the decisions I made regarding which language, framework, and/or tools to use were not because 
+it was the easiest or fastest way to do it, but because I wanted to intentionally force myself to learn new things along 
+the way. It's been slower and more painful this way, and sometimes a complete overengineering of the project, but it's been a 
+great way to test myself and have fun while learning new skills.  I mean, who doesn't want to play with all the new shiny things anyways?
 
-In order to detect when Superman collides with a Kryptonite crystal I've
-defined hit box boundaries around each kryptonite and Superman that will be used to calculate 
-when a collision occurs.  For this game we need three types of collision detection detailed below:
-
-### `sideCollision()`
-Here we detect when the right vertical edge of Superman's triangular hit box collides with the left edge of the Kryptonite. An extra 
-qualifying condition to check is that the top of Superman is above the lowest edge of the upper Kryptonite or the bottom of Superman is below the top 
-edge of the lower Kryptonite.
-
-<Image src={sideCollision} alt=""/>
-
-### `gapCollision()`
-
-Here we detect when the top point or bottom edge of Superman collides with the top/bottom edges of the Kryptonite within the gap.
-
-<Image src={gapCollision} alt=""/>
-
-### `trigCollision()`
-Finally, we detect when the rear hypotenuse edge of Superman's hit box collides with the bottom edge of the top Kryptonite.  This might 
-seem like an unnecessary detail, but originally I had Superman's hit box as an actual box vs. the triangle you see below.  Due to the 
-shape of Superman with his cape, a true quadrilateral hit box would trigger a collision where visually it did not appear that one occurred.  A 
-trianglur hit box proved to allow more accurate collision detection.
-
-<Image src={trigCollision} alt=""/>
 
 ## Going Forward
 
