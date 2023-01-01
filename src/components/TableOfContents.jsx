@@ -1,5 +1,3 @@
-import { renderToString } from "react-dom/server";
-
 export function TableOfContents({headingText}) {
 
   const getHeadings = (headingText) => {
