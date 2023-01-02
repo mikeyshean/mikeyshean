@@ -14,7 +14,7 @@ const projects = [
     name: 'Escape from Krypton',
     description:
       'A FlappyBird inspired browser with a high score leaderboard. Stack: NextJS/TypeScript, React, tRPC, Prisma, HTML Canvas',
-    link: { href: 'https://escapekrypton.app', label: 'escapekrypton.app' },
+    link: { href: 'https://escapekrypton.com', label: 'escapekrypton.com' },
     logo: logoKrypton,
   },
   {
