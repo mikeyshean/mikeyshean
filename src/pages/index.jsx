@@ -158,8 +158,15 @@ function Resume() {
       company: 'Verra Mobility',
       title: 'Software Engineer',
       logo: logoVerra,
+      start: '2016',
+      end: '2017',
+    },
+    {
+      company: 'NexTravel (Contract)',
+      title: 'Full Stack Engineer',
+      logo: logoNextravel,
       start: '2015',
-      end: '2018',
+      end: '2016',
     },
   ]
 
@@ -203,7 +210,7 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button download href="/michael_shean_resume.pdf" variant="secondary" className="group mt-6 w-full"  target="_blank">
+      <Button href="/michael_shean_resume.pdf" variant="secondary" className="group mt-6 w-full" target="_blank" rel="noopener noreferrer">
         Download Resume
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
