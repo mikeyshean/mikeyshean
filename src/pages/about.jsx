@@ -84,25 +84,25 @@ export default function About() {
                 lead me to pursue it as a career.
               </p>
               <p>
-                Since then, I've had the amazing opportunity to work with both fast-paced startups and larger 
+                Since then, I&apos;ve had the amazing opportunity to work with both fast-paced startups and larger 
                 organizations.  Coincidentally, many have been involved in the travel industry in one form or another.  My main 
-                focus these days has been exploring domains that I'm not as familiar with whether it be ML/AI, newer frontend frameworks, or getting 
+                focus these days has been exploring domains that I&apos;m not as familiar with whether it be ML/AI, newer frontend frameworks, or getting 
                 into the finer details of DevOps and Cloud Infrastructure.
               </p>
               <p>  
-                Although I specialize in the backend of the stack, I've been returning to my roots lately 
-                and feeding my original passion for the frontend.  This site you're visiting  
-                right now is one of my first projects deployed with Next.js and I'm 
+                Although I specialize in the backend of the stack, I&apos;ve been returning to my roots lately 
+                and feeding my original passion for the frontend.  This site you&apos;re visiting  
+                right now is one of my first projects deployed with Next.js and I&apos;m 
                 loving how far frontend frameworks have come since I first got started.
               </p>
               <Prose>
                 <p>
-                  If you'd like to learn more about the things I'm working on, please check 
+                  If you&apos;d like to learn more about the things I&apos;m working on, please check 
                   out my <Link href="/projects">projects</Link> and <Link href="/blog">blog</Link>.
                 </p>
               </Prose>
               <p>
-                Here are a few technologies I’ve been working with recently:
+                Here are a few technologies I&apos;ve been working with recently:
               </p>
                 <ul className='arrow columns-2'>
                   <li>Next.js</li>
