@@ -16,27 +16,28 @@ export const meta = {
   date: '2022-12-28',
   title: 'Escape from Krypton',
   description:
-    'This JavaScript based browser game is a reboot of one of my projects that I demoed at the end of my studies at App Academy.  As you can imagine, it holds some sentimental value for me, but it\'s been over *seven years* since this bad boy has been live for all the world to enjoy.'
+    'This JavaScript based browser game is a reboot of one of my final capstone projects that I built for demo day at App Academy back in 2015.  As you can imagine, it holds some sentimental value for me, but it\'s been over seven years since this project has been live for all the world to enjoy.'
 }
 
 
 export default (props) => <ArticleLayout meta={meta} {...props} />
 
-export const main_image = {
+export const mainImage = {
   src: gamePlay,
   alt: "gif of kryptonite game gameplay",
   center: true,
-  squared: true
+  squared: true,
+  priority: true
 }
 
-<SuperImage {...main_image} />
+<SuperImage {...mainImage} />
 
 This JavaScript based browser game is a reboot of one of my final capstone projects that I built for demo day at App Academy back in 2015.  As you 
-can imagine, it holds some sentimental value for me, but it's been over *seven years* since this bad boy has been 
+can imagine, it holds some sentimental value for me, but it's been over *seven years* since this project has been 
 live for all the world to enjoy.
 
 That's why I thought it was about time to dust it off, upgrade it, and give it a new place to call home.  You can play it now by 
-clicking the button below, or continue reading to learn more about the project 😄
+clicking the button below, or continue reading to learn more about the development process 😄
 
 <div className="flex justify-center">
   <Button className="not-prose flex" href="https://escapekrypton.com" value="Hi">Play Escape from Krypton!</Button>
@@ -123,7 +124,7 @@ whip out some trig functions for this one.
 ## Updates for 2022
 
 To bring it into the modern era, I chose *maximum pain* by deciding to migrate it to **TypeScript** as a **Next.js** project using 
-the <a href="https://create.t3.gg/" target="_blank">t3 stack</a>.  With it I'll be leveraging **tRPC/Prisma** to replace the Ruby/Rails LeaderboardAPI 
+the <a className="arrow" href="https://create.t3.gg/" target="_blank">t3 stack</a>.  With it I'll be leveraging **tRPC/Prisma** to replace the Ruby/Rails LeaderboardAPI 
 for a completely fullstack Next.js application. 
 
 As a predominantly backend engineer, this was an excellent exercise in both TypeScript and React.  I've used a bit of both 

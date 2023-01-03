@@ -17,10 +17,9 @@ import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
 import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
+import logoVerra from '@/images/logos/verra.png'
+import logoNextravel from '@/images/logos/nextravel.png'
+import logoTravelperk from '@/images/logos/travelperk.png'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
 import { formatDate } from '@/lib/formatDate'
@@ -141,7 +140,7 @@ function Resume() {
     {
       company: 'TravelPerk',
       title: 'Software Engineer',
-      logo: logoPlanetaria,
+      logo: logoTravelperk,
       start: '2021',
       end: {
         label: 'Present',
@@ -151,14 +150,14 @@ function Resume() {
     {
       company: 'NexTravel',
       title: 'Full Stack Engineer',
-      logo: logoAirbnb,
+      logo: logoNextravel,
       start: '2018',
       end: '2020',
     },
     {
       company: 'Verra Mobility',
       title: 'Software Engineer',
-      logo: logoFacebook,
+      logo: logoVerra,
       start: '2015',
       end: '2018',
     },
@@ -168,7 +167,7 @@ function Resume() {
     <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
         <BriefcaseIcon className="h-6 w-6 flex-none" />
-        <span className="ml-3">Work Experience</span>
+        <span className="ml-3">Experience</span>
       </h2>
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => (
@@ -204,7 +203,7 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
+      <Button download href="/michael_shean_resume.pdf" variant="secondary" className="group mt-6 w-full"  target="_blank">
         Download Resume
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
@@ -244,20 +243,23 @@ export default function Home({ articles }) {
     <>
       <Head>
         <title>
-          Mikey Shean - Software designer, founder, and amateur astronaut
+          Mikey Shean
         </title>
         <meta
           name="description"
-          content="I’m Mikey, a software designer and entrepreneur based in San Francisco. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms."
+          content="I’m Mikey, a software designer based in San Francisco."
         />
       </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Mikey Shean
+          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl pb-2">
+            Mikey Shean.
+          </h1>
+          <h1 className="text-2xl font-bold tracking-tight text-zinc-400 dark:text-zinc-400 sm:text-3xl">
+            I build things for the web.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            Software developer based in San Francisco.
+            {/* I'm a software engineer with over seven years of professional experience specializing in  */}
           </p>
           <div className="mt-6 flex gap-6">
             {/* <SocialLink

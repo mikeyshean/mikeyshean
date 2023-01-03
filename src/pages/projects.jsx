@@ -7,7 +7,6 @@ import logoKrypton from '@/images/logos/chubby-superman.png'
 import logoCosmos from '@/images/logos/cosmos.svg'
 import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
 
 const projects = [
   {
@@ -18,33 +17,33 @@ const projects = [
     logo: logoKrypton,
   },
   {
-    name: 'API Mapper Tool',
+    name: 'API Mapper',
     description:
-      'Build integrations through this UI by mapping JSON payloads to a common data model.',
+      'Build integrations through a simple UI by mapping JSON payloads to a common data model. Watch as your 3rd Party data is automatically transformed into your model.',
     link: { href: 'https://apimapper.dev', label: 'apimapper.dev' },
-    logo: logoPlanetaria,
-  },
-  {
-    name: 'HelioStream',
-    description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoHelioStream,
-  },
-  {
-    name: 'cosmOS',
-    description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoCosmos,
-  },
-  {
-    name: 'OpenShuttle',
-    description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
     logo: logoOpenShuttle,
   },
+  // {
+  //   name: 'HelioStream',
+  //   description:
+  //     'Real-time video streaming library, optimized for interstellar transmission.',
+  //   link: { href: '#', label: 'github.com' },
+  //   logo: logoHelioStream,
+  // },
+  // {
+  //   name: 'cosmOS',
+  //   description:
+  //     'The operating system that powers our Planetaria space shuttles.',
+  //   link: { href: '#', label: 'github.com' },
+  //   logo: logoCosmos,
+  // },
+  // {
+  //   name: 'OpenShuttle',
+  //   description:
+  //     'The schematics for the first rocket I designed that successfully made it to orbit.',
+  //   link: { href: '#', label: 'github.com' },
+  //   logo: logoOpenShuttle,
+  // },
 ]
 
 function LinkIcon(props) {
@@ -65,12 +64,12 @@ export default function Projects() {
         <title>Projects - Mikey Shean</title>
         <meta
           name="description"
-          content="Things I’ve made trying to put my dent in the universe."
+          content="Projects"
         />
       </Head>
       <SimpleLayout
-        title="Things I’ve made trying to put my dent in the universe."
-        intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+        title="Projects"
+        intro=""
       >
         <ul
           role="list"
