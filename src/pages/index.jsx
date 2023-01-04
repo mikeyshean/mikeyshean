@@ -255,14 +255,14 @@ export default function Home({ articles }) {
         </title>
         <meta
           name="description"
-          content="I&apos;m Mikey, a software designer based in San Francisco."
+          content="I'm Mikey, a software engineer based in San Francisco."
         />
       </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl pb-2">
             <Prose>
-                <span className='text-zinc-800 dark:text-zinc-100'>Hi, I'm </span> <Link className="underline" href="/about">Mikey Shean</Link>
+                <span className='text-zinc-800 dark:text-zinc-100'>Hi, I&apos;m </span> <Link className="underline" href="/about">Mikey Shean</Link>
             </Prose>
           </h1>
           <br/>
