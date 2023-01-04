@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-
+import Script from 'next/script'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 
@@ -29,6 +29,21 @@ export default function App({ Component, pageProps, router }) {
       </div>
       <div className="relative">
         <Header />
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-H6JEKFZFLB" />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-H6JEKFZFLB', {
+              page_path: window.location.pathname,
+            });
+          `,
+          }} />
         <main>
           <Component previousPathname={previousPathname} {...pageProps} />
         </main>

@@ -6,3 +6,8 @@
 .prose :where(a):not(:where([class~="not-prose"] *)) {
     text-decoration: none;
 }
+
+a.underline {
+    text-decoration: underline;
+    text-decoration-color: var(--tw-prose-underline);
+}

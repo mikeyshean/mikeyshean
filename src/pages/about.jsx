@@ -81,12 +81,14 @@ export default function About() {
                 others: By building custom themes for my MySpace and Xanga (+2 eProps for you, if 
                 you know what eProps are!). Although it was only HTML and CSS, it was the 
                 perfect introduction to the world of computer science, and it would ultimately 
-                lead me to pursue it as a career.
+                lead me to this lifelong passion.
               </p>
               <p>
-                Since then, I&apos;ve had the amazing opportunity to work with fast-paced startups as well as larger 
-                organizations.  Coincidentally, all have been involved in the travel industry in one form or another.  My main 
-                focus these days has been exploring domains that I&apos;m not as familiar with whether it be ML/AI, newer frontend frameworks, or getting 
+                Since then, I&apos;ve had the amazing opportunity to work with both fast-paced startups as well as larger 
+                organizations.  Coincidentally, all have been involved in the travel industry in one form or another. 
+              </p>
+              <p>
+                My main focus these days has been exploring domains that I&apos;m not as familiar with whether it be ML/AI, newer frontend frameworks, or getting 
                 into the finer details of DevOps and Cloud Infrastructure.
               </p>
               <p>  

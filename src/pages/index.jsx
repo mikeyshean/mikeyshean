@@ -6,17 +6,18 @@ import clsx from 'clsx'
 import { Button } from '@/components/Button'
 import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
+import { Prose } from '@/components/Prose'
 import {
   TwitterIcon,
   InstagramIcon,
   GitHubIcon,
   LinkedInIcon,
 } from '@/components/SocialIcons'
-import image1 from '@/images/photos/image-1.jpg'
-import image2 from '@/images/photos/image-2.jpg'
-import image3 from '@/images/photos/image-3.jpg'
-import image4 from '@/images/photos/image-4.jpg'
-import image5 from '@/images/photos/image-5.jpg'
+import image1 from '@/images/photos/golden_gate.png'
+import image2 from '@/images/photos/laptop.jpg'
+import image3 from '@/images/photos/trippy_portrait.jpg'
+import image4 from '@/images/photos/krypton.png'
+import image5 from '@/images/photos/nyc.jpg'
 import logoVerra from '@/images/logos/verra.png'
 import logoNextravel from '@/images/logos/nextravel.png'
 import logoTravelperk from '@/images/logos/travelperk.png'
@@ -228,7 +229,7 @@ function Photos() {
           <div
             key={image.src}
             className={clsx(
-              'relative aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
+              'relative aspect-[5/4] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
               rotations[imageIndex % rotations.length]
             )}
           >
@@ -260,8 +261,11 @@ export default function Home({ articles }) {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl pb-2">
-            Mikey Shean.
+            <Prose>
+                <span className='text-zinc-800 dark:text-zinc-100'>Hi, I'm </span> <Link className="underline" href="/about">Mikey Shean</Link>
+            </Prose>
           </h1>
+          <br/>
           <h1 className="text-2xl font-bold tracking-tight text-zinc-400 dark:text-zinc-400 sm:text-3xl">
             I build things for the web.
           </h1>
@@ -292,7 +296,7 @@ export default function Home({ articles }) {
           </div>
         </div>
       </Container>
-      {/* <Photos /> */}
+      <Photos />
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">

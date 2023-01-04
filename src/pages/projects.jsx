@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import logoKrypton from '@/images/logos/chubby-superman.png'
-import logoCosmos from '@/images/logos/cosmos.svg'
+import logoApimapper from '@/images/logos/apimapper.png'
 import logoHelioStream from '@/images/logos/helio-stream.svg'
 import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
 
@@ -19,9 +19,9 @@ const projects = [
   {
     name: 'API Mapper',
     description:
-      'Build integrations through a simple UI by mapping JSON payloads to a common data model. Watch as your 3rd Party data is automatically transformed into your model.',
+      'Build integrations through a simple UI by mapping JSON payloads to a common data model. Watch as your 3rd Party data is automatically transformed into your target model.',
     link: { href: 'https://apimapper.dev', label: 'apimapper.dev' },
-    logo: logoOpenShuttle,
+    logo: logoApimapper,
   },
   // {
   //   name: 'HelioStream',
