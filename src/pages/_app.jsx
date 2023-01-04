@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react'
-import Script from 'next/script'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
+import InitializeGoogleAnalytics from '../utils/google-analytics/index'
+
 
 import '@/styles/tailwind.css'
 import '@/styles/globals.css'
@@ -20,6 +21,12 @@ function usePrevious(value) {
 export default function App({ Component, pageProps, router }) {
   let previousPathname = usePrevious(router.pathname)
 
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'production') {
+      InitializeGoogleAnalytics()
+    }
+  },[])
+
   return (
     <>
       <div className="fixed inset-0 flex justify-center sm:px-8">
@@ -29,21 +36,6 @@ export default function App({ Component, pageProps, router }) {
       </div>
       <div className="relative">
         <Header />
-        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-H6JEKFZFLB" />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-H6JEKFZFLB', {
-              page_path: window.location.pathname,
-            });
-          `,
-          }} />
         <main>
           <Component previousPathname={previousPathname} {...pageProps} />
         </main>

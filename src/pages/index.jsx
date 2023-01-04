@@ -225,8 +225,10 @@ function Photos() {
   return (
     <div className="mt-16 sm:mt-20">
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
-        {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
-          <div
+        {[image1, image2, image3, image4, image5].map((image, imageIndex) => {
+          const isPriority = imageIndex == 2
+          
+          return (<div
             key={image.src}
             className={clsx(
               'relative aspect-[5/4] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
@@ -238,9 +240,10 @@ function Photos() {
               alt=""
               sizes="(min-width: 640px) 18rem, 11rem"
               className="absolute inset-0 h-full w-full object-cover"
+              priority={isPriority}
             />
-          </div>
-        ))}
+          </div>)
+        })}
       </div>
     </div>
   )
