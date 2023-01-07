@@ -50,6 +50,7 @@ export const headingText = [
   "Game Design",
   "Collision Detection",
   "Updates for 2022",
+  "Going Forward"
 ]
 
 <TableOfContents headingText={headingText}/>
@@ -126,9 +127,10 @@ whip out some trig functions for this one.
 
 To bring it into the modern era, I chose *maximum pain* by deciding to migrate it to **TypeScript** as a **Next.js** project using 
 the <a className="arrow" href="https://create.t3.gg/" target="_blank">t3 stack</a>.  With it I'll be leveraging **tRPC/Prisma** to replace the Ruby/Rails LeaderboardAPI 
-for a completely fullstack Next.js application. 
+for a completely fullstack Next.js application.  New for 2022, I'll be adding more elements to the background of the game, and 
+I'll also be adding SMS notifications for leaderboard rank updates.
 
-As a predominantly backend engineer, this was an excellent exercise in both TypeScript and React.  I've used a bit of both 
+As a predominantly backend engineer, this was also an excellent exercise in both TypeScript and React.  I've used a bit of both 
 at TravelPerk, but not with a very strong understanding of all the differences between `useEffect`, `useState`, and `useContext`. Luckily,
 I had to become acutely aware of the nuances of each as I React-ified my vanilla JavaScript game.  A single unintended re-render or 
 firing of a `useEffect` side-effect would cause the game to glitch out.
@@ -142,14 +144,12 @@ great way to test myself and have fun while learning new skills.  I mean, who do
 ## Going Forward
 
 As I resurrected this game I found myself finding all sorts of improvements I wanted to work on.  Overall, most of the actual 
-game mechanics will remain unchanged.  I have to give myself credit for creating an actual playable game, but there are plenty of nice to haves 
-and of course refactorings that would go a long way to keep iterating on it.  
+game mechanics will remain unchanged.  I have to give myself credit for creating an actual playable game, but there are 
+plenty of new features, nice-to-haves, and of course refactorings that would go a long way to keep iterating on it.
 
-One "bug" I did discover is the scoring mechanic which is currently calculated by the number of kryptonite that are created.  This isn't entirely accurate 
-as the timing of kryptonite creation doesn't actually align with the true score.  In the most likely scenario where the player flies into the kryptonite 
-it is usually accurate, however if the player reaches a `gameOver` state by flying below the play area, the scoring will not be accurate.
-
-## New Features for the Reboot:
-- [ ] Leaderboard that is *less* hackable with server-side game validation
+## Coming Soon:
+- [x] Leaderboard that is *less* hackable with server-side game validation
 - [ ] Mute sound toggle
-- [ ] Scrolling background art
+- [x] Scrolling background art
+- [x] SMS notifications
+- [x] Game counter

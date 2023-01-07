@@ -80,12 +80,12 @@ export default function About() {
                 Hi! My name is Mikey and my interest in web development started like so many 
                 others: By building custom themes for my MySpace and Xanga (+2 eProps for you, if 
                 you know what eProps are!). Although it was only HTML and CSS, it was the 
-                perfect introduction to the world of computer science, and it would ultimately 
-                lead me to this lifelong passion.
+                perfect introduction into the world of computer science, and it would ultimately 
+                lead me into pursuing a career as a software engineer.
               </p>
               <p>
-                Since then, I&apos;ve had the amazing opportunity to work with both fast-paced startups as well as larger 
-                organizations.  Coincidentally, all have been involved in the travel industry in one form or another. 
+                Since then, I&apos;ve had the amazing opportunity to work at two startups as well as a large 
+                enterprise corporation.  Coincidentally, all have been involved in the travel industry in one form or another. 
               </p>
               <p>
                 My main focus these days has been exploring domains that I&apos;m not as familiar with whether it be ML/AI, newer frontend frameworks, or getting 
