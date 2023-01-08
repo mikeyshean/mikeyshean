@@ -52,32 +52,32 @@ changes will go into the Trello backlog for future upates.
 
 Now that the game is in a state that I&apos;m relatively happy with for now, I&apos;ll primarily be working on refactoring 
 the codebase and just cleaning it up in general.  I not only migrated the game into TypeScript, Next.js, 
-and some React etc., but I was also adding features to the game during that process which led me to neglect 
+and some React etc., but I also added features to the game during that process which led me to neglect 
 some areas that could&apos;ve used some extra love.  
 
 ## Tech Debt
 
-Young me made a hilariously naive decision when I first made this game, which was 
+The younger 2015 version of me made a hilariously naive decision when I first made this game, which was 
 to implement the "Game Over" scores modal in a *combination* of HTML/CSS ***and*** HTML 
 Canvas. I think I probably started off rendering the modal box and 
 buttons in Canvas because I was just in that mode throughout the game design, but 
 then realized I needed click handlers on the buttons which you can&apos;t exactly attach to 
 elements drawn in canvas. That realization with the looming demo day deadline led me to quickly 
 float some text in HTML over the canvas and attach click handlers to them.  Honestly, it&apos;s 
-not *terrible*, but could&apos;ve been simplified by being just HTML/CSS without the additional 
+not *terrible*, but could&apos;ve been simplified by just being entirely HTML/CSS without the additional 
 dependency on the canvas.
 
-On the positive side, I did take the opportunity to implement certain abstractions 
-that I had not done the first time around, by creating a `GameObject` interface 
-definition implemented by all subclasses of it, such as all the Kryptonite, background 
-objects (Stars, Shooting Stars, Planets, etc), and of course Superman himself.The orignal 
-game I made implemented it with ducktyping which was a fine approach, but having an explicit contract,
-especially with the addition of several new game objects, made everything much clearer to work with.
+On a positive note, I did take the opportunity to implement certain abstractions 
+that I had not done the first time around by creating a `GameObject` interface which is implemented 
+by all moving game objects, such as all the Kryptonite, background objects (Stars, Shooting Stars, 
+Planets, etc), and of course Superman himself. The orignal game I made implemented it with 
+ducktyping which was a fine approach, but having an explicit contract, especially with the 
+addition of several new game objects, made everything much clearer to work with.
 
 ## Conclusion
 
 Overall, I&apos;m happy so many found the game amusing enough to log that many games played on it 
-in a single day.  It&apos;s given me motivation to keep working on and polishing it up.  At the end
+in a single day.  It&apos;s given me motivation to keep working on it and polishing it up.  At the end
 of the day I know this can never be really "launched" to the public due to copyrights and what not, but 
 it&apos;s just a fun game that I&apos;ve enjoyed working on and am glad that others are able to share in that 
-even just for a short while.
+even just for a short while.  Who knows, maybe I'll repurpose the ideas here into a whole new game one day.
