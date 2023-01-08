@@ -1,0 +1,82 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import { SuperImage } from '@/components/SuperImage'
+import countersImage from './counters.png'
+import launchImage from './launch.png'
+import formImage from './new_form.png'
+import smsImage from './sms.png'
+
+export const meta = {
+  author: 'Mikey Shean',
+  date: '2023-01-07',
+  title: 'Krypton Launch!',
+  description:
+    'Finally, I reached that point in any project where you ask yourself, "Is this thing ready for \
+other people to actually get to see?" and you answer confidently and enthusiastically, "... I \
+guess?". So, with that out of the way, I shared the game with a handful of friends \
+yesterday which resulted in the site seeing 49 unique game sessions and nearly 2,800 games played!'
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+***Finally,*** I reached that point in any project where you ask yourself, *"Is this thing ready for 
+other people to actually see?"* and you answer confidently and enthusiastically, *"... I 
+guess?"*. So, with that out of the way, I shared <a class="arrow" href="https://escapekrypton.com" target="_blank">Escape Krypton</a> with 
+a handful of friends yesterday which resulted in the site seeing ***49*** unique visitors 
+and nearly ***2,800*** games played! I guess those handful of friends also shared with their friends 
+which was a welcome surprise.
+
+<SuperImage src={launchImage} square/>
+
+## New Features
+
+As you can see, I also added counters to the site to display some stats.
+Along with that update, I also wanted to add a little more interactiveness to 
+the leaderboard and integrated Twilio SMS notifications.
+
+<SuperImage src={smsImage} center height={600}/>
+
+Players provide their phone numbers during score submission and will be 
+notified if their rank drops, and can also select a "taunt" to send along 
+with that message to all the players they pass on the leaderboard.
+
+<SuperImage src={formImage} square />
+
+
+This was very amusing when there were only 3-4 of us playing, but it quickly became a
+little spammy and caused friction during the score submission process.  Instead of that, 
+I&apos;d like to prioritize the ease at which players can enter their names onto the leaderboard 
+without forcing them to enter their phone number.  For the time being I&apos;ve made phone 
+numbers optional which I probably should have done to begin with.  Also, 
+without SMS verification this can be quickly overrun with fake numbers. These 
+changes will go into the Trello backlog for future upates.
+
+Now that the game is in a state that I&apos;m relatively happy with for now, I&apos;ll primarily be working on refactoring 
+the codebase and just cleaning it up in general.  I not only migrated the game into TypeScript, Next.js, 
+and some React etc., but I was also adding features to the game during that process which led me to neglect 
+some areas that could&apos;ve used some extra love.  
+
+## Tech Debt
+
+Young me made a hilariously naive decision when I first made this game, which was 
+to implement the "Game Over" scores modal in a *combination* of HTML/CSS ***and*** HTML 
+Canvas. I think I probably started off rendering the modal box and 
+buttons in Canvas because I was just in that mode throughout the game design, but 
+then realized I needed click handlers on the buttons which you can&apos;t exactly attach to 
+elements drawn in canvas. That realization with the looming demo day deadline led me to quickly 
+float some text in HTML over the canvas and attach click handlers to them.  Honestly, it&apos;s 
+not *terrible*, but could&apos;ve been simplified by being just HTML/CSS without the additional 
+dependency on the canvas.
+
+On the positive side, I did take the opportunity to implement certain abstractions that I had not done the first time around, by 
+creating a `GameObject` base class with all the common implementation inherited by all subclasses of 
+it, such as all the Kryptonite, background objects (Stars, Shooting Stars, Planets, etc), and of course Superman himself.
+The orignal game I made implemented it with ducktyping which was a fine approach, but having an explicit contract,
+especially with the addition of several new game objects, made everything much clearer to work with.
+
+## Conclusion
+
+Overall, I&apos;m happy so many found the game amusing enough to log that many games played on it 
+in a single day.  It&apos;s given me motivation to keep working on and polishing it up.  At the end
+of the day I know this can never be really "launched" to the public due to copyrights and what not, but 
+it&apos;s just a fun game that I&apos;ve enjoyed working on and am glad that others are able to share in that 
+even just for a short while.

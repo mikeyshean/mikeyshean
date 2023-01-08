@@ -1,10 +1,10 @@
 import Image from 'next/image'
 
-export function SuperImage({src, caption=false, alt="", center=false, squared=false, priority=false}) {
+export function SuperImage({caption=false, center=false, square=false, ...props}) {
   return (
-    <div className={`${squared ? "not-prose" : ""} ${center ? "flex justify-center" : ""}`}>
+    <div className={`${square ? "not-prose" : ""} ${center ? "flex justify-center" : ""}`}>
       <figure>
-        <Image src={src} alt={alt} priority={priority} />
+        <Image {...props} />
         <div className="flex justify-center">
           {
             caption && (
