@@ -67,10 +67,11 @@ float some text in HTML over the canvas and attach click handlers to them.  Hone
 not *terrible*, but could&apos;ve been simplified by being just HTML/CSS without the additional 
 dependency on the canvas.
 
-On the positive side, I did take the opportunity to implement certain abstractions that I had not done the first time around, by 
-creating a `GameObject` base class with all the common implementation inherited by all subclasses of 
-it, such as all the Kryptonite, background objects (Stars, Shooting Stars, Planets, etc), and of course Superman himself.
-The orignal game I made implemented it with ducktyping which was a fine approach, but having an explicit contract,
+On the positive side, I did take the opportunity to implement certain abstractions 
+that I had not done the first time around, by creating a `GameObject` interface 
+definition implemented by all subclasses of it, such as all the Kryptonite, background 
+objects (Stars, Shooting Stars, Planets, etc), and of course Superman himself.The orignal 
+game I made implemented it with ducktyping which was a fine approach, but having an explicit contract,
 especially with the addition of several new game objects, made everything much clearer to work with.
 
 ## Conclusion
