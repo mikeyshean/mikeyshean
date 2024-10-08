@@ -1,29 +1,27 @@
-import Image from 'next/image'
-import Head from 'next/head'
-import Link from 'next/link'
-import clsx from 'clsx'
+import clsx from 'clsx';
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { Button } from '@/components/Button'
-import { Card } from '@/components/Card'
-import { Container } from '@/components/Container'
-import { Prose } from '@/components/Prose'
+import { Button } from '@/components/Button';
+import { Card } from '@/components/Card';
+import { Container } from '@/components/Container';
+import { Prose } from '@/components/Prose';
 import {
-  TwitterIcon,
-  InstagramIcon,
   GitHubIcon,
   LinkedInIcon,
-} from '@/components/SocialIcons'
-import image1 from '@/images/photos/golden_gate.png'
-import image2 from '@/images/photos/laptop.jpg'
-import image3 from '@/images/photos/trippy_portrait.jpg'
-import image4 from '@/images/photos/krypton.png'
-import image5 from '@/images/photos/nyc.jpg'
-import logoVerra from '@/images/logos/verra.png'
-import logoNextravel from '@/images/logos/nextravel_white.png'
-import logoTravelperk from '@/images/logos/travelperk_white.png'
-import { generateRssFeed } from '@/lib/generateRssFeed'
-import { getAllArticles } from '@/lib/getAllArticles'
-import { formatDate } from '@/lib/formatDate'
+} from '@/components/SocialIcons';
+import logoNextravel from '@/images/logos/nextravel_white.png';
+import logoTravelperk from '@/images/logos/travelperk_white.png';
+import logoVerra from '@/images/logos/verra.png';
+import image1 from '@/images/photos/golden_gate.png';
+import image4 from '@/images/photos/krypton.png';
+import image2 from '@/images/photos/laptop.jpg';
+import image5 from '@/images/photos/nyc.jpg';
+import image3 from '@/images/photos/trippy_portrait.jpg';
+import { formatDate } from '@/lib/formatDate';
+import { generateRssFeed } from '@/lib/generateRssFeed';
+import { getAllArticles } from '@/lib/getAllArticles';
 
 function MailIcon(props) {
   return (
@@ -211,7 +209,7 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="/michael_shean_resume.pdf" variant="secondary" className="group mt-6 w-full" target="_blank" rel="noopener noreferrer">
+      <Button href="/michael_shean_resume_2024.pdf" variant="secondary" className="group mt-6 w-full" target="_blank" rel="noopener noreferrer">
         Download Resume
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
